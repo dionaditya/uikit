@@ -2,6 +2,7 @@
   "name": "@refactory.id/uikit",
   "version": "0.1.0",
   "description": "Refactory's UI Kit",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/refactory-id/uikit.git"
