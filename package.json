@@ -1,0 +1,14 @@
+{
+  "name": "@refactory.id/uikit",
+  "version": "0.1.0",
+  "description": "Refactory's UI Kit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/refactory-id/uikit.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/refactory-id/uikit/issues"
+  },
+  "homepage": "https://github.com/refactory-id/uikit#readme"
+}
