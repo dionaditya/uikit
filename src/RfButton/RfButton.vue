@@ -1,6 +1,6 @@
 <template>
   <button
-    :type="type"
+    :type="nativeType"
     :class="classes"
     @click="$emit('click')"
   >
@@ -13,6 +13,10 @@
     name: 'RfButton',
 
     props: {
+      nativeType: {
+        type: String,
+        default: 'button'
+      },
       type: String,
       size: String,
     },
