@@ -26,7 +26,7 @@ Ready to use
 <template>
   <div>
     <RfTextInput v-model="message"/>
-    <RfButton type="primary" size="lg">
+    <RfButton type="primary" size="lg" @click="send">
       <i class="fas fa-paper-plane"></i> Send
     </RfButton>
   </div>
@@ -34,11 +34,19 @@ Ready to use
 
 <script>
   export default {
-    data() {
+
+    data () {
       return {
         message: 'Hello World!'
       }
-    }
+    },
+
+    methods: {
+      send () {
+        alert('Ping! ' + this.message)
+      }
+    },
+
   }
 </script>
 ```
