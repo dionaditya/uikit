@@ -11,5 +11,12 @@
   "bugs": {
     "url": "https://github.com/refactory-id/uikit/issues"
   },
-  "homepage": "https://github.com/refactory-id/uikit#readme"
+  "homepage": "https://github.com/refactory-id/uikit#readme",
+  "devDependencies": {
+    "vuepress": "^0.14.9"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
 }
