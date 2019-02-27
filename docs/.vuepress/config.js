@@ -6,6 +6,19 @@ module.exports = {
       { text: 'Home', link: '/'},
       { text: 'Usage', link: '/usage/'},
       { text: 'Documentation', link: '/docs/'},
+    ],
+    displayAllHeaders: true,
+    sidebar: [
+      '/',
+      '/usage/',
+      {
+        title: 'Documentation',
+        collapsable: false,
+        children: [
+          '/docs/',
+          '/docs/button'
+        ]
+      }
     ]
   }
 }

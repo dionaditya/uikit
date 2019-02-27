@@ -1,5 +1,1 @@
----
-sidebar: auto
----
-Refactory UI Kit Documentation
-=====
+# Refactory UI Kit Documentation

@@ -1,3 +1,6 @@
+---
+sidebar: auto
+---
 # Usage
 
 Put this into `package.json` file.
