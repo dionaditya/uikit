@@ -1,6 +1,8 @@
 import RfButton from './RfButton'
 import RfTextInput from './RfTextInput'
 
+import './styles/custom.scss'
+
 const components = [
   RfButton,
   RfTextInput,
