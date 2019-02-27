@@ -114,6 +114,3 @@ Fancy larger or smaller buttons
   <RfButton type="primary" size="lg" disabled>Primary</RfButton>
   <RfButton type="secondary" size="lg" disabled>Secondary</RfButton>
 ```
-
-## Toggle Button
-> TODO: Toggle Button
