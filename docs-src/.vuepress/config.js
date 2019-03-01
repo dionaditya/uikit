@@ -8,7 +8,7 @@ module.exports = {
       { text: 'Usage', link: '/usage/'},
       { text: 'Documentation', link: '/docs/'},
     ],
-    displayAllHeaders: true,
+    displayAllHeaders: false,
     sidebar: [
       '/',
       '/usage/',
@@ -17,7 +17,9 @@ module.exports = {
         collapsable: false,
         children: [
           '/docs/',
-          '/docs/button'
+          '/docs/button',
+          '/docs/layout',
+          '/docs/navigation',
         ]
       }
     ]
