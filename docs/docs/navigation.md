@@ -395,9 +395,109 @@ If you need responsive nav variations, consider using a series of [flexbox utili
     brand="Refactory"
     logo="/logo-sm.png"
     text="UI Kit"
-  ><template v-slot:collapse><RfNav :children="menu_dropdown" class="mr-auto"></RfNav></template>
-  </RfNavBar>
+    :children="menu_dropdown"
+    expand="lg"
+    scheme="light"
+    bg="light"
+  ><template v-slot:collapse><RfButton type="primary" :class="'ml-auto'">Register</RfButton></template></RfNavBar>
 </Preview>
+
+```html
+  <RfNavBar
+    brand="Refactory"
+    logo="/logo-sm.png"
+    text="UI Kit"
+    :children="menu_dropdown"
+    expand="lg"
+    scheme="light"
+    bg="light"
+  >
+    <template v-slot:collapse>
+      <RfButton type="primary" :class="'ml-auto'">Register</RfButton>
+    </template>
+  </RfNavBar>
+```
+```js
+  export default {
+    data() {
+      return {
+        menu: [
+          {
+            name: 'Active',
+            link: '/active',
+            active: true,
+            disabled: false
+          },
+          {
+            name: 'Link',
+            link: '/link',
+            active: false,
+            disabled: false
+          },
+          {
+            name: 'Dropdown',
+            link: '#',
+            active: false,
+            disabled: false,
+            showDropdown: false,
+            children: [
+              {
+                name: 'Action',
+                link: '/action',
+              },
+              {
+                name: 'Another Action',
+                link: '#',
+                onClick: function(item, $event) { alert('another action') },
+              },
+              {
+                name: 'Disabled Action',
+                link: '#',
+              },
+              {
+                name: 'divider',
+              },
+              {
+                name: 'Separated link',
+                link: '#',
+              },
+            ]
+          },
+          {
+            name: 'Disabled',
+            link: '/disabled',
+            active: false,
+            disabled: true
+          },
+        ]
+      }
+    }
+  }
+```
+
+<Preview>
+  <RfNavBar
+    brand="Refactory"
+    logo="/logo-sm.png"
+    text="UI Kit"
+  ><template v-slot:collapse><RfButton type="primary" :class="'ml-auto'">Hide on Mobile</RfButton></template><RfButton type="secondary">Show on Mobile</RfButton></RfNavBar>
+</Preview>
+
+```html
+  <RfNavBar
+    brand="Refactory"
+    logo="/logo-sm.png"
+    text="UI Kit"
+    :children="menu"
+  >
+    <template v-slot:collapse>
+      <RfButton type="primary" :class="'ml-auto'">Hide on Mobile</RfButton>
+    </template>
+    <RfButton type="secondary" :class="'ml-auto'">Show on Mobile</RfButton>
+  </RfNavBar>
+```
+
+> More info about Navbar [read here](https://getbootstrap.com/docs/4.3/components/navbar/)
 
 <script>
   export default {
