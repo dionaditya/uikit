@@ -17,29 +17,64 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" :class="isCollapse && 'show'" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+          <li
+            v-for="item in children"
+            class="nav-item"
+            :class="item.children && item.children.length > 0 && 'dropdown'"
+            :key="item.name"
+          >
+            <a
+              :class="getNavItemClasses(item)"
+              :href="getNavItemLink(item)"
+              @click="getNavItemClickEvent(item, $event)"
+            >{{item.name}}</a>
+            <div class="dropdown-menu ml-auto" :class="item.showDropdown && 'show'" v-if="item.children && item.children.length > 0">
+              <template v-for="dropdownItem in item.children">
+                <div
+                  v-if="dropdownItem.name === 'divider'"
+                  :key="dropdownItem.name"
+                  class="dropdown-divider"></div>
+                <a
+                  v-else
+                  :key="dropdownItem.name"
+                  class="dropdown-item"
+                  :href="dropdownItem.link"
+                  @click="getNavItemClickEvent(dropdownItem, $event)"
+                >{{ dropdownItem.name }}</a>
+              </template>
+            </div>
+          </li>
+        </ul>
       <slot name="collapse"></slot>
-      <!-- <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-        </ul> -->
     </div>
     <slot></slot>
   </nav>
 </template>
-<style lang="scss" scoped>
+<style lang="scss">
 .content:not(.custom) a:hover {
   text-decoration: none;
 }
-.navbar-collapse > ul {
-  display: flex;
-  flex-direction: column;
+.collapse.show {
+  width: 100%;
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  padding: 1rem;
+  background: var(--light);
+  animation: fadein 400ms ease-in;
+  .dropdown-menu {
+    background-color: transparent;
+    border: none;
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 </style>
 <script>
@@ -62,6 +97,10 @@
       brand: '',
       logo: '',
       text: '',
+      children: {
+        type: Array,
+        default: () => ([]),
+      },
     },
 
     data() {
@@ -73,6 +112,33 @@
     methods: {
       toggle() {
         this.isCollapse = !this.isCollapse
+      },
+      getNavItemClasses(item) {
+        const classes = ['nav-link']
+        if (item.active) classes.push('active')
+        if (item.disabled) classes.push('disabled')
+        if (item.children && item.children.length > 0) classes.push('dropdown-toggle')
+        return classes
+      },
+      getNavItemLink(item) {
+        return typeof item.onClick === 'function' ? '#' : item.link
+      },
+      getNavItemClickEvent(item, $event) {
+        if (item.children && item.children.length > 0) {
+          event.preventDefault()
+          item.showDropdown = !item.showDropdown
+          const dropdown = $event.target.nextElementSibling
+          dropdown.addEventListener('mouseleave', () => {
+            item.showDropdown = false
+            dropdown.removeEventListener('mouseleave', this)
+          })
+          return true
+        }
+        if (typeof item.onClick === 'function') {
+          event.preventDefault()
+          return item.onClick(item, $event)
+        }
+        return null
       }
     },
 
