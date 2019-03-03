@@ -499,6 +499,12 @@ If you need responsive nav variations, consider using a series of [flexbox utili
 
 > More info about Navbar [read here](https://getbootstrap.com/docs/4.3/components/navbar/)
 
+## Sidebar navigation
+
+<Preview>
+  <RfContainer fluid><RfSideBar/></RfContainer>
+</Preview>
+
 <script>
   export default {
     data() {
