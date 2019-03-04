@@ -502,7 +502,7 @@ If you need responsive nav variations, consider using a series of [flexbox utili
 ## Sidebar navigation
 
 <Preview>
-  <RfContainer fluid><RfSideBar/></RfContainer>
+  <RfContainer fluid><RfRow><RfSideBar/><RfCol class="bg-dark" :style="`height:100vh;`"/></RfRow></RfContainer>
 </Preview>
 
 <script>
