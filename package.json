@@ -13,6 +13,9 @@
   },
   "homepage": "https://github.com/refactory-id/uikit#readme",
   "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.15",
+    "@fortawesome/free-solid-svg-icons": "^5.7.2",
+    "@fortawesome/vue-fontawesome": "^0.1.5",
     "bootstrap": "^4.3.1",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
