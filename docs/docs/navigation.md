@@ -475,6 +475,8 @@ If you need responsive nav variations, consider using a series of [flexbox utili
   }
 ```
 
+## NavBar with custom elements
+
 <Preview>
   <RfNavBar
     brand="Refactory"
@@ -498,6 +500,86 @@ If you need responsive nav variations, consider using a series of [flexbox utili
 ```
 
 > More info about Navbar [read here](https://getbootstrap.com/docs/4.3/components/navbar/)
+
+## NavBar with dropdown image
+
+<Preview>
+  <RfNavBar
+    brand="Refactory"
+    logo="/logo-sm.png"
+    text="UI Kit"
+    :children="menu_dropdown_image"
+    expand="lg"
+    scheme="light"
+    bg="light"
+  ><template v-slot:collapse></template></RfNavBar>
+</Preview>
+
+```html
+  <RfNavBar
+    brand="Refactory"
+    logo="/logo-sm.png"
+    text="UI Kit"
+    :children="menu"
+    expand="lg"
+    scheme="light"
+    bg="light"
+  ><template v-slot:collapse></template></RfNavBar>
+```
+
+```js
+export default {
+  data() {
+    return {
+      menu: [
+          {
+            name: 'Active',
+            link: '/active',
+            active: true,
+            disabled: false
+          },
+          {
+            name: 'Link',
+            link: '/link',
+            active: false,
+            disabled: false
+          },
+          {
+            name: 'Dropdown',
+            image: '/logo.png',
+            link: '#',
+            active: false,
+            disabled: false,
+            showDropdown: false,
+            children: [
+              {
+                name: 'Action',
+                link: '/action',
+              },
+              {
+                name: 'Another Action',
+                link: '#',
+                onClick: function(item, $event) { alert('another action') },
+              },
+              {
+                name: 'Disabled Action',
+                link: '#',
+              },
+              {
+                name: 'divider',
+              },
+              {
+                name: 'Separated link',
+                link: '#',
+              },
+            ]
+          },
+
+      ]
+    }
+  }
+}
+```
 
 ## Sidebar navigation
 
@@ -703,6 +785,50 @@ If you need responsive nav variations, consider using a series of [flexbox utili
             link: '/disabled',
             active: false,
             disabled: true
+          },
+        ],
+        menu_dropdown_image: [
+          {
+            name: 'Active',
+            link: '/active',
+            active: true,
+            disabled: false
+          },
+          {
+            name: 'Link',
+            link: '/link',
+            active: false,
+            disabled: false
+          },
+          {
+            name: 'Dropdown',
+            image: '/logo.png',
+            link: '#',
+            active: false,
+            disabled: false,
+            showDropdown: false,
+            children: [
+              {
+                name: 'Action',
+                link: '/action',
+              },
+              {
+                name: 'Another Action',
+                link: '#',
+                onClick: function(item, $event) { alert('another action') },
+              },
+              {
+                name: 'Disabled Action',
+                link: '#',
+              },
+              {
+                name: 'divider',
+              },
+              {
+                name: 'Separated link',
+                link: '#',
+              },
+            ]
           },
         ],
         menu_sidebar: [
