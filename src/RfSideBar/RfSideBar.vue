@@ -121,6 +121,7 @@
   }
 }
 .rf-sidebar-collapse {
+  animation: collapse alternate 400ms ease-in;
   li, a {
     width: 2rem;
   }
@@ -138,6 +139,14 @@
   }
   .nav-item {
     padding: 0 !important;
+  }
+}
+@keyframes collapse {
+  from {
+    width: 200px;
+  }
+  to {
+    width: 80px;
   }
 }
 </style>
@@ -169,7 +178,7 @@ export default {
     },
     getStatusClass(item) {
       const classes = []
-      if (item.active) classes.push('active')
+      if (item.active && !this.haveChild(item)) classes.push('active')
       if (item.disabled) classes.push('disabled')
       if (this.haveChild(item)) classes.push('dropdown')
       return classes
@@ -190,8 +199,8 @@ export default {
       }
       if (item.children && item.children.length > 0) {
         $event.preventDefault()
-        console.log(item)
         item.active = ! item.active
+        if (item.active) this.collapse = false
         return false
       }
       return false
