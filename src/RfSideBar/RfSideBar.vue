@@ -59,12 +59,13 @@
     </div>
   </ul>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 .rf-sidebar {
-  color: var(--white);
+  transition: all 400ms ease-in-out;
+  color: var(--white) !important;
 }
 .rf-sidebar-brand-text {
-  color: var(--white);
+  color: var(--white) !important;
 }
 .nav-item {
   &.active {
@@ -123,7 +124,7 @@
   li, a {
     width: 2rem;
   }
-  .dropdown {
+  .dropdown-menu {
     display: none;
   }
   .rf-sidebar-heading {
@@ -150,7 +151,12 @@ export default {
 
   data() {
     return {
+      collapse: false
     }
+  },
+
+  created() {
+    this.collapse = this.defaultCollapse
   },
 
   components: {
@@ -196,7 +202,7 @@ export default {
   },
 
   props: {
-    collapse: {
+    defaultCollapse: {
       type: Boolean,
       default: false
     },
