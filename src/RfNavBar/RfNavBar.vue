@@ -17,7 +17,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" :class="isCollapse && 'show'" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto align-items-end">
           <li
             v-for="item in children"
             class="nav-item"
@@ -28,8 +28,11 @@
               :class="getNavItemClasses(item)"
               :href="getNavItemLink(item)"
               @click="getNavItemClickEvent(item, $event)"
-            >{{item.name}}</a>
-            <div class="dropdown-menu ml-auto" :class="item.showDropdown && 'show'" v-if="item.children && item.children.length > 0">
+            >
+              <img v-if="Boolean(item.image)" :src="item.image" :alt="item.name" class="dropdown-image rounded">
+              <template v-else>{{item.name}}</template>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right ml-auto" :class="item.showDropdown && 'show'" v-if="item.children && item.children.length > 0">
               <template v-for="dropdownItem in item.children">
                 <div
                   v-if="dropdownItem.name === 'divider'"
@@ -52,6 +55,10 @@
   </nav>
 </template>
 <style lang="scss">
+.dropdown-image {
+  max-width: 2.5em;
+  max-height: 2.5em;
+}
 .content:not(.custom) a:hover {
   text-decoration: none;
 }
@@ -128,7 +135,7 @@
           event.preventDefault()
           item.showDropdown = !item.showDropdown
           const dropdown = $event.target.nextElementSibling
-          dropdown.addEventListener('mouseleave', () => {
+          Boolean(dropdown) && dropdown.addEventListener('mouseleave', () => {
             item.showDropdown = false
             dropdown.removeEventListener('mouseleave', this)
           })
