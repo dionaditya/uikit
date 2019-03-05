@@ -1,7 +1,7 @@
 <template>
   <nav :class="classes">
     <a v-if="this.brand || this.logo" class="navbar-brand mb-0 h1" href="#">
-      <img v-if="this.logo" :src="this.logo" width="30" height="30" alt="">
+      <img v-if="this.logo" :src="$withBase(this.logo)" width="30" height="30" alt="">
       {{ this.brand }}
     </a>
     <span v-if="this.text" class="navbar-text">{{ this.text }}</span>
@@ -29,7 +29,7 @@
               :href="getNavItemLink(item)"
               @click="getNavItemClickEvent(item, $event)"
             >
-              <img v-if="Boolean(item.image)" :src="item.image" :alt="item.name" class="dropdown-image rounded">
+              <img v-if="Boolean(item.image)" :src="$withBase(item.image)" :alt="item.name" class="dropdown-image rounded">
               <template v-else>{{item.name}}</template>
             </a>
             <div class="dropdown-menu dropdown-menu-right ml-auto" :class="item.showDropdown && 'show'" v-if="item.children && item.children.length > 0">
