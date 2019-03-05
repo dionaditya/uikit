@@ -45,15 +45,6 @@
       </div>
     </li>
     </template>
-    <!-- <hr class="rf-sidebar-divider my-0">
-    <h6 class="rf-sidebar-heading my-0 pt-2">Interface</h6>
-    <li class="nav-item pl-3">
-      <a href="" class="nav-link">Component</a>
-    </li>
-    <li class="nav-item pl-3">
-      <a href="" class="nav-link">Utilities</a>
-    </li>
-    <hr class="rf-sidebar-divider my-0"> -->
     <div class="rf-sidebar-btn d-flex justify-content-center align-items-center my-5">
       <button @click="collapseToggle" class="btn btn-outline-light"><fa :icon="`chevron-${collapse ? 'right' : 'left'}`"/></button>
     </div>
@@ -217,83 +208,7 @@ export default {
     },
     menu: {
       type: Array,
-      default: () => (
-        [
-          {
-            name: '',
-            children: [
-              {
-                name: 'Dashboard',
-                link: '/',
-                active: true,
-                disabled: false,
-                faIcon: 'tachometer-alt'
-              },
-              {
-                name: 'Dropdown',
-                link: '/dropdown',
-                active: false,
-                disabled: false,
-                faIcon: 'caret-square-down',
-                children: [
-                  {
-                    name: 'Action',
-                    link: '#',
-                    active: false,
-                    disabled: false,
-                    onClick: (item, $event) => console.log('action called.'),
-                    faIcon: 'exclamation',
-                  },
-                  {
-                    name: 'link',
-                    link: '/link',
-                    faIcon: 'link',
-                    active: false,
-                    disabled: false,
-                  },
-                  {
-                    name: 'divider',
-                  },
-                  {
-                    name: 'Disabled',
-                    link: '#',
-                    faIcon: 'user-slash',
-                    active: false,
-                    disabled: true,
-                  },
-                ]
-              }
-            ]
-          },
-          {
-            name: 'Interface',
-            children: [
-              {
-                name: 'Component',
-                link: '/component',
-                active: false,
-                disabled: false,
-                onClick: (item, $event) => console.log('Component clicked'),
-                faIcon: 'layer-group',
-              },
-              {
-                name: 'Utilities',
-                link: '/utilities',
-                active: false,
-                disabled: false,
-                faIcon: 'tools',
-              },
-              {
-                name: 'Disabled',
-                link: '/disabled',
-                active: false,
-                disabled: true,
-                faIcon: 'user-slash',
-              },
-            ]
-          }
-        ]
-      )
+      default: () => ([])
     },
   },
 
