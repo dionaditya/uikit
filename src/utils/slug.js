@@ -1,4 +1,4 @@
-function slug (text, replacement = '-') {
+function slug (text = '', replacement = '-') {
   return text.toLowerCase(text)
     .replace(/\W/gi, replacement)
     .replace(RegExp(replacement + '{2,}', 'gi'), replacement)
