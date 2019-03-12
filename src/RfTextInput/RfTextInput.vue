@@ -9,7 +9,7 @@
 
 <script>
   export default {
-    name: 'RfIcon',
+    name: 'RfTextInput',
     props: {
       input: String,
       value: String,
