@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import slug from '@/utils/slug'
+  import slug from '../utils/slug'
 
   export default {
     name: 'RfCheckbox',
