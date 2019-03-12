@@ -1,5 +1,7 @@
 import RfButton from './RfButton'
 import RfTextInput from './RfTextInput'
+import RfPasswordInput from './RfPasswordInput'
+import RfCheckbox from './RfCheckbox'
 import RfContainer from './RfContainer'
 import RfRow from './RfRow'
 import RfCol from './RfCol'
@@ -12,6 +14,8 @@ import './styles/custom.scss'
 const components = [
   RfButton,
   RfTextInput,
+  RfPasswordInput,
+  RfCheckbox,
   RfContainer,
   RfRow,
   RfCol,
