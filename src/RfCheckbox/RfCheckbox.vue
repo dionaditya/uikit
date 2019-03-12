@@ -1,14 +1,20 @@
 <template>
-  <div>
+  <div class="form-check">
     <input
       type="checkbox"
-      class="form-control"
+      class="form-check-input"
       @input="$emit('input', $event.target.value)"
       :value="value"
-      :id="label | slug"
+      :id="idName | slug"
       :aria-label="label"
     />
-    <label v-if="label" :for="id">{{ label }}</label>
+    <label
+      v-if=""
+      :for="idName | slug"
+      class="form-check-label"
+    >
+      <slot></slot>
+    </label>
   </div>
 </template>
 
@@ -20,12 +26,18 @@
     props: {
       input: String,
       value: String,
-      id: String,
-      label: String,
     },
 
     filters: {
       slug: (text) => slug(text),
+    },
+
+    computed: {
+      idName() {
+        return this.$slots.default && this.$slots.default[0] && this.$slots.default[0].text
+          ? this.$slots.default[0].text
+          : ''
+      },
     },
   }
 </script>
