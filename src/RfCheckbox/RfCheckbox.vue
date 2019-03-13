@@ -6,7 +6,6 @@
       @input="$emit('input', $event.target.value)"
       :value="value"
       :id="idName | slug"
-      :aria-label="label"
     />
     <label
       v-if=""
