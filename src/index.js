@@ -9,6 +9,7 @@ import RfCol from './RfCol'
 import RfNav from './RfNav'
 import RfNavBar from './RfNavBar'
 import RfSideBar from './RfSideBar'
+import RfRadio from './RfRadio'
 
 import './styles/custom.scss'
 
@@ -24,6 +25,7 @@ const components = [
   RfNav,
   RfNavBar,
   RfSideBar,
+  RfRadio,
 ]
 
 export {
@@ -36,6 +38,7 @@ export {
   RfNav,
   RfNavBar,
   RfSideBar,
+  RfRadio,
 }
 
 export default {
