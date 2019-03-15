@@ -20,6 +20,7 @@ module.exports = {
           '/docs/button',
           '/docs/layout',
           '/docs/navigation',
+          '/docs/combobox'
         ]
       }
     ]
