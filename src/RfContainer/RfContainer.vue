@@ -6,6 +6,10 @@
     <slot></slot>
   </div>
 </template>
+<style lang="scss" scoped>
+@import '../styles/custom.scss';
+</style>
+
 <script>
   export default {
     name: 'RfContainer',

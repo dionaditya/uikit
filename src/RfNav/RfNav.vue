@@ -33,6 +33,7 @@
   </ul>
 </template>
 <style lang="scss" scoped>
+@import '../styles/custom.scss';
 .content:not(.custom) a:hover {
   text-decoration: none;
 }

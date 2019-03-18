@@ -5,6 +5,7 @@
   </div>
 </template>
 <style lang="scss" scoped>
+@import '../styles/custom.scss';
 </style>
 
 <script>
