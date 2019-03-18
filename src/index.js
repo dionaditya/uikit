@@ -11,7 +11,7 @@ import RfNavBar from './RfNavBar'
 import RfSideBar from './RfSideBar'
 import RfRadio from './RfRadio'
 
-import './styles/custom.scss'
+// import './styles/custom.scss'
 
 const components = [
   RfButton,
