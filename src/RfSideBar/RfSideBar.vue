@@ -51,6 +51,7 @@
   </ul>
 </template>
 <style lang="scss" scoped>
+@import '../styles/custom.scss';
 .rf-sidebar {
   transition: all 400ms ease-in-out;
   color: var(--white) !important;

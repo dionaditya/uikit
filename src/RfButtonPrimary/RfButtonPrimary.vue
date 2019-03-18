@@ -7,6 +7,9 @@
     <slot></slot>
   </button>
 </template>
+<style lang="sass" scoped>
+@import '../styles/custom.scss';
+</style>
 
 <script>
   export default {

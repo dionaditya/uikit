@@ -55,6 +55,7 @@
   </nav>
 </template>
 <style lang="scss">
+@import '../styles/custom.scss';
 .dropdown-image {
   max-width: 2.5em;
   max-height: 2.5em;
